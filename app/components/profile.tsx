@@ -3,7 +3,8 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import React from "react";
 
 function Profile() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  console.log(session?.user, status);
   if (session) {
     return (
       <div className="dropdown dropdown-end">

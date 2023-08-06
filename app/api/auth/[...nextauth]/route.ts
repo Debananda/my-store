@@ -41,6 +41,15 @@ const handler = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    async jwt({ user, token }) {
+      return { ...token, ...user };
+    },
+    async session({ session, token }) {
+      session.user = token;
+      return session;
+    },
+  },
   // adapter: MongoDBAdapter(clientPromise),
 });
 export { handler as GET, handler as POST };
