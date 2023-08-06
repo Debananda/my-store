@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  env: {
+    mongodburl: "mongodb://localhost:27017/my-store",
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
